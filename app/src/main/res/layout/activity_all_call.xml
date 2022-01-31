@@ -437,7 +437,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView2"
                 tools:listitem="@layout/single_row_dial"
                 tools:itemCount="10"
-                android:nestedScrollingEnabled="false"/>
+                android:nestedScrollingEnabled="true"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -3,6 +3,7 @@ package com.corcodial;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -11,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class DialAdapter extends RecyclerView.Adapter<DialAdapter.ListViewHolder> {
     //private ArrayList<Rute> sampleData;
     private int id_layout,size;
-    ConstraintLayout voice;
+
 
     public DialAdapter(int size){
         this.id_layout = id_layout;
@@ -34,7 +35,15 @@ public class DialAdapter extends RecyclerView.Adapter<DialAdapter.ListViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+               // Toast.makeText(view.getContext(), "ok", Toast.LENGTH_SHORT).show();
+                if (voice.getVisibility() == view.VISIBLE){
+                    voice.setVisibility(view.GONE);
+                    //Toast.makeText(view.getContext(), "harus hide", Toast.LENGTH_SHORT).show();
 
+                }else {
+                    voice.setVisibility(view.VISIBLE);
+                    
+                }
             }
         });
     }
@@ -44,9 +53,13 @@ public class DialAdapter extends RecyclerView.Adapter<DialAdapter.ListViewHolder
         return size;
     }
 
+    public ConstraintLayout voice;
+
+
     public class ListViewHolder extends RecyclerView.ViewHolder{
         public ListViewHolder(@NonNull View itemView) {
             super(itemView);
+            voice = (ConstraintLayout) itemView.findViewById(R.id.lyt_voice);
         }
     }
 }
